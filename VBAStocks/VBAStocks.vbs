@@ -107,11 +107,11 @@ Sub stockchallenge():
     Dim maxTotalRow As Integer
     
     ' Set title row for the table with greatest values
-    ws.Range("P2").Value = "Greatest % Increase"
-    ws.Range("P3").Value = "Greatest % Decrease"
-    ws.Range("P4").Value = "Greatest Total Volume"
-    ws.Range("Q1").Value = "Ticker"
-    ws.Range("R1").Value = "Value"
+    ws.Range("O2").Value = "Greatest % Increase"
+    ws.Range("O3").Value = "Greatest % Decrease"
+    ws.Range("O4").Value = "Greatest Total Volume"
+    ws.Range("P1").Value = "Ticker"
+    ws.Range("Q1").Value = "Value"
     
 
     ' Iterate through the summary table
@@ -144,14 +144,16 @@ Sub stockchallenge():
     maxTotalVal = ws.Cells(maxTotalRow, 12).Value
     
     ' Format and input values to the maximum value table
-    ws.Range("Q2").Value = ws.Range("I" & maxIncreaseRow).Value
-    ws.Range("Q3").Value = ws.Range("I" & maxDecreaseRow).Value
-    ws.Range("Q4").Value = ws.Range("I" & maxTotalRow).Value
-    ws.Range("R2").Value = maxIncreaseVal
-    ws.Range("R3").Value = maxDecreaseVal
-    ws.Range("R4").Value = maxTotalVal
-    ws.Range("R2").NumberFormat = "0.00%"
-    ws.Range("R3").NumberFormat = "0.00%"
+    ws.Range("P2").Value = ws.Range("I" & maxIncreaseRow).Value
+    ws.Range("P3").Value = ws.Range("I" & maxDecreaseRow).Value
+    ws.Range("P4").Value = ws.Range("I" & maxTotalRow).Value
+    ws.Range("Q2").Value = maxIncreaseVal
+    ws.Range("Q3").Value = maxDecreaseVal
+    ws.Range("Q4").Value = maxTotalVal
+    ws.Range("Q2").NumberFormat = "0.00%"
+    ws.Range("Q3").NumberFormat = "0.00%"
+    
+    ws.Columns("A:Q").AutoFit
     
 Next ws
 
